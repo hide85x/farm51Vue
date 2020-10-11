@@ -9,8 +9,12 @@ import About from './components/About'
 
 Vue.use(Router);
 export default new Router({
-    mode:"history",
     routes: [
+        {
+            path:"/",
+            name:"about",
+            component: About
+        },
         {
             path:"/about",
             name:"about",
@@ -25,11 +29,7 @@ export default new Router({
             path:"/login",
             name:"login",
             component: Login
-        },
-        {
-            path:"/signUp",
-            name:"signUp",
-            component: SignUp
         }
+
     ]
 })

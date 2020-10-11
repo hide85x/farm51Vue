@@ -8,9 +8,7 @@
     ></v-progress-circular>
     <h1 @input="budget"></h1>
     <div v-show="loading === false">
-      <h1 id="title">Welcome Home {{ user.email }}</h1>
-      <h1>isAdmin : {{ user.isAdmin }}</h1>
-      <!-- <button class="button" type="button" @click="getThemAll">I want My family back!</button> -->
+      <h1 id="title">Welcome Home {{ user.name }}</h1>
       <button class="button" @click="logout">LogOut</button>
 
       <v-card
