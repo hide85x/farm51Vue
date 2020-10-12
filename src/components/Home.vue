@@ -70,6 +70,11 @@ export default {
   },
 
   async created() {
+
+    if(!this.$store.getters.isLoggedIn) {
+  //    this.$router.push('/login');
+    }
+    
     this.user = await this.$store.getters.getUser;
     this.loading = true;
     AuthService.getFamily()
@@ -78,12 +83,11 @@ export default {
         this.loading = false;
       })
       .catch(err => {
-        // this.$swal({
-        //   text: err.response.data.message,
-        //   icon: 'error',
-        //   dangerMode: true,
-        // });
-        this.$router.push('/login');
+        this.$swal({
+          text: err.response.data.message,
+          icon: 'error',
+          dangerMode: true,
+        });
         console.log(err);
         err;
       });
@@ -94,7 +98,9 @@ export default {
     },
     logout() {
       this.$store.dispatch('logout');
+
       this.$router.push('/login');
+    // }
     },
   },
 };

@@ -2,9 +2,9 @@ import  Router  from 'vue-router';
 import Vue from 'vue'
 
 import Login from './components/Login'
-import SignUp from './components/SignUp'
 import Home from './components/Home'
 import About from './components/About'
+import Store from './store/index.js'
 
 
 Vue.use(Router);
@@ -12,18 +12,24 @@ export default new Router({
     routes: [
         {
             path:"/",
-            name:"about",
+            redirect:"about",
             component: About
         },
         {
             path:"/about",
             name:"about",
-            component: About
+            component: About,
         },
         {
             path:'/home',
             name: "home",
-            component: Home
+            component: Home,
+            beforeEnter(from,to, next) {
+                if(!Store.getters.isLoggedIn) {
+                next('/login')
+            } else {
+                next()
+            }}
         },
         {
             path:"/login",

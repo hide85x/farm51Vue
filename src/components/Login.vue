@@ -75,9 +75,6 @@ export default {
           });
             return;
           }
-
-
-          this.msgs = err.response.data.message;
         });
     },
 

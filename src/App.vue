@@ -19,14 +19,12 @@
 <script>
 import Login from './components/Login.vue';
 import Home from './components/Home';
-import SignUp from './components/SignUp';
 import Router from './router'
 
 export default {
   name: 'App',
   components: {
     Login,
-    SignUp,
     Home
   }
 }

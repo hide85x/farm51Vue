@@ -76,13 +76,11 @@ export default {
 
   methods: {
     transferCash() {
-      console.log(this.valid);
       this.$refs.form.validate();
 
       ShopService.addCash({ cash: this.cash })
         .then(results => {
           const newBudget = results.data.budget;
-          console.log(newBudget);
           this.$swal({
             text: 'thanks for the cash!',
             icon: 'success',
